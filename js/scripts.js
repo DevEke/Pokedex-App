@@ -59,5 +59,3 @@ let pokemonList = [
     height: 5.25
   }
 ];
-
-// Loops through Pokemon List and displays each pokemon's name and corresponding height
