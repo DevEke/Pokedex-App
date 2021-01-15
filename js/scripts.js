@@ -61,14 +61,3 @@ let pokemonList = [
 ];
 
 // Loops through Pokemon List and displays each pokemon's name and corresponding height
-
-for (let i = 0; i < pokemonList.length; i++) {
-  // If the height of the pokemon is greater than to 6 feet then we'll append a statement to the pokemon's height and name
-  if ( pokemonList[i].height > 6 ) {
-    document.write(pokemonList[i].name + ` (Height: ${pokemonList[i].height}) - Wow, That's big!<br><br>`)
-  }
-  // If the height of the pokemon is less than 6 feet, we'll just return their name and height
-  else {
-    document.write(pokemonList[i].name + ` (Height: ${pokemonList[i].height})<br><br>`)
-  }
-}
