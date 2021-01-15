@@ -1,6 +1,6 @@
 alert('Hello World');
 
-let favoriteFood = [
+let favoriteFoods = [
   ' chicken',
   ' pasta',
   ' salads',
@@ -9,4 +9,4 @@ let favoriteFood = [
   ' and bananas.'
 ];
 
-document.write('My favorite foods are' + favoriteFood);
+document.write('My favorite foods are' + favoriteFoods);
