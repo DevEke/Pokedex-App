@@ -1,5 +1,5 @@
 alert("Hello World");
 
-let favoriteFood = [" Chicken", " Pasta", " Salads", " Broccoli", " Apples", " and Bananas"];
+let favoriteFood = [" chicken", " pasta", " salads", " broccoli", " apples", " and bananas."];
 
 document.write("My favorite foods are" + favoriteFood);
