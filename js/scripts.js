@@ -1,5 +1,5 @@
-alert("Hello World");
+alert('Hello World');
 
-let favoriteFood = [" chicken", " pasta", " salads", " broccoli", " apples", " and bananas."];
+let favoriteFood = [' chicken', ' pasta', ' salads', ' broccoli', ' apples', ' and bananas.'];
 
-document.write("My favorite foods are" + favoriteFood);
+document.write('My favorite foods are' + favoriteFood);
