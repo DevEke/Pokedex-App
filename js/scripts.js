@@ -61,6 +61,16 @@ let pokemonRepo = (function() {
     }
   ];
 
+  function addListItem(pokemon) {
+    let selectList = document.querySelector('ul');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('pokemon-node');
+    listItem.appendChild(button);
+    selectList.appendChild(listItem);
+  }
+
   function getAll() {
     return pokemonList;
   }
@@ -76,19 +86,13 @@ let pokemonRepo = (function() {
 
   return {
     getAll: getAll,
-    add: add
+    add: add,
+    addListItem: addListItem
   }
 })();
 
-// Loops through Pokemon List and displays each pokemon's name and corresponding height
+// Loops through Pokemon List and displays each pokemon's name
 
 pokemonRepo.getAll().forEach(function(pokemon) {
-  // If the height of the pokemon is greater than to 6 feet then we'll append a statement to the pokemon's height and name
-if ( pokemon.height > 6 ) {
-    document.write("<p>" + pokemon.name + ` (Height: ${pokemon.height}) - <b>Wow, That's big!</b>` + "</p>")
-  }
-  // If the height of the pokemon is less than 6 feet, we'll just return their name and height
-  else {
-    document.write("<p>" + pokemon.name + ` (Height: ${pokemon.height})` + "</p>")
-  }
+  pokemonRepo.addListItem(pokemon);
 });
