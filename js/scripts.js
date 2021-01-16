@@ -94,11 +94,12 @@ let pokemonRepo = (function() {
 
 // Adds a pokemon to the list only if the passed argument is an object
   function add(pokemon) {
-    if (typeof pokemon === "object") {
+    let test = ['id', 'name', 'type', 'height'];
+    if (typeof pokemon === "object" && JSON.stringify(Object.keys(pokemon)) === JSON.stringify(test)) {
       pokemonList.push(pokemon);
     }
     else {
-      return "Sorry, Pokemon must have an Id, Name, Height, and Type.";
+      return "Sorry, Pokemon must have an Id, Name, Type, and Height.";
     }
   }
 
