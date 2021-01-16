@@ -1,7 +1,5 @@
 // I LOVE POKEMON
 
-// Loading full LoDash build
-var _ = require('lodash/core');
 
 // Stored variable for list of pokemon
 
@@ -68,11 +66,11 @@ let pokemonRepo = (function() {
   }
 
   function add(pokemon) {
-    if (typeof pokemon === "object" /*&& Object.keys(pokemon) === ['id', 'name', 'type', 'height']*/) {
+    if (typeof pokemon === "object") {
       pokemonList.push(pokemon);
     }
     else {
-      return "Sorry, We don't recognize that pokemon.";
+      return "Sorry, Pokemon must have an Id, Name, Height, and Type.";
     }
   }
 
