@@ -15,8 +15,8 @@ let pokemonRepo = (function() {
   function showLoadingMessage() {
     status.innerHTML = "Loading..."
   }
-  
-  function showDoneMessage() {
+
+  function showReadyMessage() {
     status.innerHTML = "Ready";
   }
 
@@ -36,7 +36,7 @@ let pokemonRepo = (function() {
 // Shows the pokemon's name in the console
   function showDetails(pokemon) {
       loadDetails(pokemon).then(function () {
-        showDoneMessage();
+        showReadyMessage();
         console.log(pokemon);
       })
     }
@@ -68,7 +68,7 @@ let pokemonRepo = (function() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function (json) {
-      showDoneMessage();
+      showReadyMessage();
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
@@ -77,7 +77,7 @@ let pokemonRepo = (function() {
         add(pokemon);
       });
     }).catch(function (error) {
-      showDoneMessage();
+      showReadyMessage();
       console.log(error);
     })
   }
