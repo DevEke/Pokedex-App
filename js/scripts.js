@@ -6,62 +6,20 @@
 let pokemonRepo = (function() {
 
 // Declares our list of pokemon
-  let pokemonList = [
-    {
-      id: 001,
-      name: 'Bulbasaur',
-      type: ['grass', 'poison'],
-      height: 2.33
-    },
-    {
-      id: 002,
-      name: 'Ivysaur',
-      type: ['grass', 'poison'],
-      height: 3.25
-    },
-    {
-      id: 003,
-      name: 'Venusaur',
-      type: ['grass', 'poison'],
-      height: 6.58
-    },
-    {
-      id: 004,
-      name: 'Charmander',
-      type: ['fire'],
-      height: 2
-    },
-    {
-      id: 005,
-      name: 'Charmeleon',
-      type: ['fire'],
-      height: 3.58
-    },
-    {
-      id: 006,
-      name: 'Charizard',
-      type: ['fire', 'flying'],
-      height: 5.58
-    },
-    {
-      id: 007,
-      name: 'Squirtle',
-      type: ['water'],
-      height: 1.67
-    },
-    {
-      id: 008,
-      name: 'Wartortle',
-      type: ['water'],
-      height: 3.25
-    },
-    {
-      id: 009,
-      name: 'Blastoise',
-      type: ['water'],
-      height: 5.25
-    }
-  ];
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=250';
+
+
+//Loading Message
+  let status = document.querySelector('.status');
+  function showLoadingMessage() {
+    status.innerHTML = "Loading..."
+  }
+
+  function showDoneMessage() {
+    status.innerHTML = "Ready";
+  }
+
 
 // Creates a button for each pokemon in the pokemon list
   function addListItem(pokemon) {
@@ -77,13 +35,16 @@ let pokemonRepo = (function() {
 
 // Shows the pokemon's name in the console
   function showDetails(pokemon) {
-      console.log(pokemon);
+      loadDetails(pokemon).then(function () {
+        showDoneMessage();
+        console.log(pokemon);
+      })
     }
 
 // Adds an event listener to the button that shows pokemon's name
   function addListener(button, pokemon) {
     button.addEventListener('click', function() {
-      showDetails(pokemon.name);
+      showDetails(pokemon);
     })
   }
 
@@ -94,8 +55,7 @@ let pokemonRepo = (function() {
 
 // Adds a pokemon to the list only if the passed argument is an object
   function add(pokemon) {
-    let test = ['id', 'name', 'type', 'height'];
-    if (typeof pokemon === "object" && JSON.stringify(Object.keys(pokemon)) === JSON.stringify(test)) {
+    if (typeof pokemon === "object") {
       pokemonList.push(pokemon);
     }
     else {
@@ -103,15 +63,53 @@ let pokemonRepo = (function() {
     }
   }
 
+  function loadList() {
+    showLoadingMessage();
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      showDoneMessage();
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (error) {
+      showDoneMessage();
+      console.log(error);
+    })
+  }
+
+  function loadDetails(item) {
+    showLoadingMessage();
+    let url = item.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (error) {
+      console.log(error);
+    });
+  }
+
+
+
   return {
     getAll: getAll,
     add: add,
+    loadList: loadList,
+    loadDetails: loadDetails,
     addListItem: addListItem
   }
 })();
 
 // Loops through Pokemon List and displays each pokemon's name
-
-pokemonRepo.getAll().forEach(function(pokemon) {
-  pokemonRepo.addListItem(pokemon);
-});
+pokemonRepo.loadList().then(function() {
+  pokemonRepo.getAll().forEach(function(pokemon) {
+    pokemonRepo.addListItem(pokemon);
+  });
+})
