@@ -1,5 +1,7 @@
 // I LOVE POKEMON
 
+// Loading full LoDash build
+var _ = require('lodash/core');
 
 // Stored variable for list of pokemon
 
