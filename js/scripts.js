@@ -10,12 +10,12 @@ let pokemonRepo = (function() {
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=250';
 
 
-//Loading Message
+//Displays Status Messages
   let status = document.querySelector('.status');
   function showLoadingMessage() {
     status.innerHTML = "Loading..."
   }
-
+  
   function showDoneMessage() {
     status.innerHTML = "Ready";
   }
