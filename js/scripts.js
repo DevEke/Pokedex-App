@@ -4,6 +4,8 @@
 // Stored variable for list of pokemon
 
 let pokemonRepo = (function() {
+
+// Declares our list of pokemon
   let pokemonList = [
     {
       id: 001,
@@ -61,6 +63,7 @@ let pokemonRepo = (function() {
     }
   ];
 
+// Creates a button for each pokemon in the pokemon list
   function addListItem(pokemon) {
     let selectList = document.querySelector('ul');
     let listItem = document.createElement('li');
@@ -68,13 +71,28 @@ let pokemonRepo = (function() {
     button.innerText = pokemon.name;
     button.classList.add('pokemon-node');
     listItem.appendChild(button);
+    addListener(button, pokemon);
     selectList.appendChild(listItem);
   }
 
+// Shows the pokemon's name in the console
+  function showDetails(pokemon) {
+      console.log(pokemon);
+    }
+
+// Adds an event listener to the button that shows pokemon's name
+  function addListener(button, pokemon) {
+    button.addEventListener('click', function() {
+      showDetails(pokemon.name);
+    })
+  }
+
+// Retrieves the full pokemon list
   function getAll() {
     return pokemonList;
   }
 
+// Adds a pokemon to the list only if the passed argument is an object
   function add(pokemon) {
     if (typeof pokemon === "object") {
       pokemonList.push(pokemon);

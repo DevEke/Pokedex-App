@@ -1,12 +1,22 @@
+/*Applies Raleway font and centers text*/
 body {
   font-family: 'Raleway', sans-serif;
   text-align: center;
 }
 
+/*Removes dots from list and centers list perfectly*/
 ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
+h1 {
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+/*Styles pokemon buttons*/
 .pokemon-node {
   width: 200px;
   padding: 10px;
@@ -20,6 +30,7 @@ ul {
   transition: color 0.3s, background-color 0.3s;
 }
 
+/*Adds hover effect to pokemon button*/
 .pokemon-node:hover, .pokemon-node:focus {
   color: white;
   background-color: #333;
