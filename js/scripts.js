@@ -7,7 +7,7 @@ let pokemonRepo = (function() {
 
 // Declares our list of pokemon
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=250';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=1118';
 
 
 // Displays Status Messages
