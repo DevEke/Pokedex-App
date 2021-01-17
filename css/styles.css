@@ -1,4 +1,8 @@
 /*Applies Raleway font and centers text*/
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Raleway', sans-serif;
   text-align: center;
@@ -22,6 +26,7 @@ p {
   font-size: 12px;
   margin: 5px 0 10px;
 }
+
 header {
   text-transform: uppercase;
 }
@@ -51,4 +56,80 @@ header {
   color: white;
   background-color: #333;
   outline: none;
+}
+
+/*Modal*/
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background-color: rgba(0,0,0,.5);
+  text-align: center;
+  display: none;
+  overflow: hidden;
+}
+.modal-container.is-visible {
+  display: grid;
+}
+.modal {
+  background: white;
+  color: black;
+  border-radius: 20px;
+  max-width: 500px;
+  min-width: 280px;
+  min-height: 200px;
+  padding: 5px 10px;
+  margin: auto;
+}
+
+.pokemon-info {
+  margin: 10px;
+  text-transform: capitalize;
+}
+
+.pokemon-info h1, .pokemon-info p {
+  margin: 0;
+  text-align: left;
+}
+
+.div-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.close {
+  height: 40px;
+  width: 40px;
+  border: none;
+  margin-top: 5px;
+  color: #FF7875;
+  background-color: white;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  display: inline;
+}
+
+.pokepic {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  clear: both;
+}
+
+.pokeheight {
+  color: red;
+  font-size: 16px;
+}
+.types {
+  display: inline-block;
+  background: #eee;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin: 10px;
+  bottom: 20px;
 }
