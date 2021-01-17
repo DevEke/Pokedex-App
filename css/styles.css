@@ -1,8 +1,9 @@
-/*Applies Raleway font and centers text*/
+
 * {
   box-sizing: border-box;
 }
 
+/*Applies Raleway font and centers text*/
 body {
   font-family: 'Raleway', sans-serif;
   text-align: center;
@@ -29,6 +30,10 @@ p {
 
 header {
   text-transform: uppercase;
+}
+
+button:focus {
+  outline: none;
 }
 
 .container {
@@ -71,9 +76,11 @@ header {
   display: none;
   overflow: hidden;
 }
+
 .modal-container.is-visible {
   display: grid;
 }
+
 .modal {
   background: white;
   color: black;
@@ -105,7 +112,9 @@ header {
   height: 40px;
   width: 40px;
   border: none;
+  border-radius: 50%;
   margin-top: 5px;
+  margin-right: 5px;
   color: #FF7875;
   background-color: white;
   cursor: pointer;
@@ -115,21 +124,82 @@ header {
 }
 
 .pokepic {
-  height: 100px;
-  width: 100px;
-  margin: 0 auto;
+  height: 150px;
+  width: 150px;
+  margin: 0 auto 10px;
   clear: both;
+  background: #eee;
+  border-radius: 50%;
 }
 
 .pokeheight {
-  color: red;
   font-size: 16px;
 }
+
 .types {
   display: inline-block;
   background: #eee;
   padding: 10px 15px;
   border-radius: 20px;
-  margin: 10px;
+  margin: 10px 10px 30px;
   bottom: 20px;
+  text-transform: capitalize;
+  color: white;
+  font-weight: 900;
+}
+
+/*Types Classes*/
+.normal {
+  background-color: #A8A878;
+}
+.water {
+  background-color: #6890F0;
+}
+.electric {
+  background-color: #F8D030;
+}
+.fighting {
+  background-color: #C03028;
+}
+.ground {
+  background-color: #E0C068;
+}
+.psychic {
+  background-color: #F85888;
+}
+.rock {
+  background-color: #B8A038;
+}
+.dark {
+  background-color: #705848;
+}
+.steel {
+  background-color: #B8B8D0;
+}
+.fire {
+  background-color: #F08030;
+}
+.grass {
+  background-color: #78C850;
+}
+.poison {
+  background-color: #A040A0;
+}
+.flying {
+  background-color: #A890F0;
+}
+.bug {
+  background-color: #A8B820;
+}
+.ghost {
+  background-color: #705898;
+}
+.dragon {
+  background-color: #7038F8;
+}
+.fairy {
+  background-color: #F0B6BC;
+}
+.ice {
+  background-color: #98D8D8;
 }
