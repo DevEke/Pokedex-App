@@ -49,16 +49,16 @@ let pokemonRepo = (function() {
     modalBody.empty();
     modalId.empty();
     let pokemonId = document.createElement("p");
-    pokemonId.innerText = `ID: ${pokemon.id}`;
+    pokemonId.innerText = "ID: " + pokemon.id;
     let pokemonImage = document.createElement("img");
     pokemonImage.setAttribute("src", pokemon.imageUrl);
     pokemonImage.classList.add("img-fluid");
     pokemonImage.classList.add("mb-2");
     pokemonImage.classList.add("pokepic");
     let pokemonHeight = document.createElement("p");
-    pokemonHeight.innerText = `Height: ${pokemon.height / 0.1} cm`;
+    pokemonHeight.innerText = "Height: " + pokemon.height / 0.1 + " cm";
     let pokemonWeight = document.createElement("p");
-    pokemonWeight.innerText = `Weight: ${pokemon.weight / 10} kg`;
+    pokemonWeight.innerText = "Weight: " + pokemon.weight / 10 + " kg";
 
     modalTitle.append(pokemon.name);
     modalBody.append(pokemonId);
