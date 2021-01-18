@@ -7,7 +7,7 @@ let pokemonRepo = (function() {
 
 // Declares our list of pokemon
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=1118';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=250';
 
 
 // Displays Status Messages
@@ -23,122 +23,85 @@ let pokemonRepo = (function() {
 
 // Creates a button for each pokemon in the pokemon list
   function addListItem(pokemon) {
-    let selectList = document.querySelector('ul');
-    let listItem = document.createElement('li');
+    let selectList = document.querySelector('.pokemon-list');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add('pokemon-node');
-    listItem.appendChild(button);
-    addListener(button, pokemon);
-    selectList.appendChild(listItem);
+    button.classList.add('list-group-item');
+    button.classList.add('text-capitalize');
+    button.setAttribute('type', 'button');
+    button.classList.add('btn');
+    button.classList.add('btn-primary');
+    button.setAttribute('data-target', '#pokemon-info');
+    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-bs-name', pokemon.name);
+    selectList.appendChild(button);
+    button.addEventListener('click', function() {
+      showDetails(pokemon);
+    })
   }
 
 
-// Opens Modal
-function openModal(pokemon) {
+  function showModal(pokemon) {
+    let modalHeader = $('.modal-header');
+    let modalTitle = $('.modal-title');
+    let modalBody = $('.modal-body');
+    let modalId = $('#pokemon-id');
+    modalTitle.empty();
+    modalBody.empty();
+    modalId.empty();
+    let pokemonId = document.createElement('p');
+    pokemonId.innerText = `ID: ${pokemon.id}`;
+    let pokemonImage = document.createElement('img');
+    pokemonImage.setAttribute('src', pokemon.imageUrl);
+    pokemonImage.classList.add('pokepic');
+    let pokemonHeight = document.createElement('p');
+    pokemonHeight.innerText = `Height: ${pokemon.height/.10000 } cm`
+    let pokemonWeight = document.createElement('p');
+    pokemonWeight.innerText = `Weight: ${pokemon.weight/10} kg`;
 
-// Creates containers for Modal
-  let modalContainer = document.querySelector('.modal-container');
-  modalContainer.innerHTML = '';
-  let modal = document.createElement('div');
-  modal.classList.add('modal');
-  let divTop = document.createElement('div');
-  divTop.classList.add('div-top');
-  let pokemonInfo = document.createElement('div');
-  pokemonInfo.classList.add('pokemon-info');
+    modalTitle.append(pokemon.name);
+    modalBody.append(pokemonId);
+    modalBody.append(pokemonImage);
+    modalBody.append(pokemonHeight);
+    modalBody.append(pokemonWeight);
 
-// Creates the name of the pokemon to the modal
-  let pokemonName = document.createElement('h1');
-  pokemonName.classList.add('title');
-  pokemonName.innerText = pokemon.name;
+    pokemon.types.forEach(function(pokemon) {
+      let pokemonType = document.createElement('img');
+      pokemonType.classList.add('type');
 
-// Creates the pokemon id to the modal
-  let pokemonId = document.createElement('p');
-  pokemonId.classList.add('id-num');
-  pokemonId.innerText = `ID: ${pokemon.id}`;
+  // Switch case for Pokemon types, assigns class based on element of Pokemon
+      switch(pokemon.type.name) {
+        case "normal": pokemonType.setAttribute('src', 'img/normal.png'); break;
+        case "water": pokemonType.setAttribute('src', 'img/water.png'); break;
+        case "electric": pokemonType.setAttribute('src', 'img/electric.png'); break;
+        case "fighting": pokemonType.setAttribute('src', 'img/fight.png'); break;
+        case "ground": pokemonType.setAttribute('src', 'img/ground.png'); break;
+        case "psychic": pokemonType.setAttribute('src', 'img/psychic.png'); break;
+        case "rock": pokemonType.setAttribute('src', 'img/rock.png'); break;
+        case "dark": pokemonType.setAttribute('src', 'img/dark.png'); break;
+        case "steel": pokemonType.setAttribute('src', 'img/steel.png'); break;
+        case "fire": pokemonType.setAttribute('src', 'img/fire.png'); break;
+        case "grass": pokemonType.setAttribute('src', 'img/grass.png'); break;
+        case "ice": pokemonType.setAttribute('src', 'img/ice.png'); break;
+        case "poison": pokemonType.setAttribute('src', 'img/poison.png'); break;
+        case "flying": pokemonType.setAttribute('src', 'img/flying.png'); break;
+        case "bug": pokemonType.setAttribute('src', 'img/bug.png'); break;
+        case "ghost": pokemonType.setAttribute('src', 'img/ghost.png'); break;
+        case "dragon": pokemonType.setAttribute('src', 'img/dragon.png'); break;
+        case "fairy": pokemonType.setAttribute('src', 'img/fairy.png'); break;
+      }
+      modalBody.append(pokemonType);
+    })
 
-// Creates close button
-  let closeButton = document.createElement('button');
-  closeButton.classList.add('close');
-  let closeIcon = document.createElement('img');
-  closeIcon.src = 'img/close-icon2.svg';
-  closeButton.addEventListener('click', hideModal);
-
-// Creates Pokemon Image
-  let pokemonImg = document.createElement('img');
-  pokemonImg.src = pokemon.imageUrl;
-  pokemonImg.classList.add('pokepic');
-
-// Creates Pokemon Height and converts it to Centimeters
-  let pokemonHeight = document.createElement('p');
-  pokemonHeight.classList.add('pokeheight');
-  pokemonHeight.innerText = `Height: ${pokemon.height / .10000 } cm`;
-
-// Creates Pokemon Weight and converts it to Kilograms
-  let pokemonWeight = document.createElement('p');
-  pokemonWeight.classList.add('pokeheight');
-  pokemonWeight.innerText = `Weight: ${pokemon.weight / 10 } kg`;
-
-// Adds all elements to modal
-  modalContainer.appendChild(modal);
-  modal.appendChild(divTop);
-  divTop.appendChild(pokemonInfo);
-  pokemonInfo.appendChild(pokemonName);
-  pokemonInfo.appendChild(pokemonId);
-  divTop.appendChild(closeButton);
-  closeButton.appendChild(closeIcon);
-  modal.appendChild(pokemonImg);
-  modal.appendChild(pokemonHeight);
-  modal.appendChild(pokemonWeight);
-
-// Loops through array of pokemon types
-  pokemon.types.forEach(function(pokemon) {
-    let pokemonType = document.createElement('div');
-    pokemonType.classList.add('types');
-    pokemonType.innerHTML = pokemon.type.name;
-
-// Switch case for Pokemon types, assigns class based on element of Pokemon
-    switch(pokemon.type.name) {
-      case "normal": pokemonType.classList.add('normal'); break;
-      case "water": pokemonType.classList.add('water'); break;
-      case "electric": pokemonType.classList.add('electric'); break;
-      case "fighting": pokemonType.classList.add('fighting'); break;
-      case "ground": pokemonType.classList.add('ground'); break;
-      case "psychic": pokemonType.classList.add('psychic'); break;
-      case "rock": pokemonType.classList.add('rock'); break;
-      case "dark": pokemonType.classList.add('dark'); break;
-      case "steel": pokemonType.classList.add('steel'); break;
-      case "fire": pokemonType.classList.add('fire'); break;
-      case "grass": pokemonType.classList.add('grass'); break;
-      case "ice": pokemonType.classList.add('ice'); break;
-      case "poison": pokemonType.classList.add('poison'); break;
-      case "flying": pokemonType.classList.add('flying'); break;
-      case "bug": pokemonType.classList.add('bug'); break;
-      case "ghost": pokemonType.classList.add('ghost'); break;
-      case "dragon": pokemonType.classList.add('dragon'); break;
-      case "fairy": pokemonType.classList.add('fairy'); break;
-    }
-    modal.appendChild(pokemonType);
-  })
-
-// Makes the Modal visible
-  modalContainer.classList.add('is-visible');
-}
+  }
 
 // Shows the pokemon's name in the console
   function showDetails(pokemon) {
       loadDetails(pokemon).then(function () {
         showReadyMessage();
-        openModal(pokemon);
+        showModal(pokemon);
       })
     }
-
-// Adds an event listener to the button that shows pokemon's name
-  function addListener(button, pokemon) {
-    button.addEventListener('click', function() {
-      showDetails(pokemon);
-    })
-  }
 
 // Retrieves the full pokemon list
   function getAll() {
@@ -183,7 +146,7 @@ function openModal(pokemon) {
       return response.json();
     }).then(function (details) {
       item.id = details.id;
-      item.imageUrl = details.sprites.front_default;
+      item.imageUrl = details.sprites.other.dream_world.front_default;
       item.height = details.height;
       item.weight = details.weight;
       item.types = details.types;
@@ -199,8 +162,7 @@ function openModal(pokemon) {
     add: add,
     loadList: loadList,
     loadDetails: loadDetails,
-    addListItem: addListItem,
-    openModal: openModal
+    addListItem: addListItem
   }
 })();
 
@@ -210,25 +172,3 @@ pokemonRepo.loadList().then(function() {
     pokemonRepo.addListItem(pokemon);
   });
 })
-
-// Closes the Modal
-function hideModal() {
-  let modalContainer = document.querySelector('.modal-container');
-  modalContainer.classList.remove('is-visible');
-};
-
-// Closes the Modal when pressing the Escape Key and Modal is open
-window.addEventListener('keydown', function(e) {
-  let modalContainer = document.querySelector('.modal-container');
-  if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-    hideModal();
-  }
-});
-
-// Closes Modal when an area outside of Modal is clicked
- document.querySelector('.modal-container').addEventListener('click', function(e) {
-    let target = e.target;
-    if (target === document.querySelector('.modal-container')) {
-      hideModal();
-    }
-  });
