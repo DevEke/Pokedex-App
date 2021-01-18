@@ -1,0 +1,149 @@
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+
+.navbar-custom {
+  background: #FF7875;
+  color: white;
+}
+
+header {
+  text-transform: uppercase;
+}
+
+button:focus {
+  outline: none;
+}
+
+.type {
+  margin: 5px 5px;
+  height: 45px;
+}
+
+.status {
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: white;
+  background: inherit;
+  font-weight: 700;
+}
+
+.ready {
+  background-color: #669C56;
+}
+.loading {
+  background-color: #F0A046;
+}
+
+.pokemon-list {
+  margin-top: 60px;
+}
+.btn-close {
+  background: none;
+  border: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 5px 40px 5px 5px;
+  border: none;
+  border-radius: 40px;
+}
+.search-input::-webkit-input-placeholder {
+  padding: 0 5px;
+}
+.search-input::-moz-placeholder {
+  padding: 0 5px;
+}
+.search-input:-ms-input-placeholder {
+  padding: 0 5px;
+}
+.search-input::-ms-input-placeholder {
+  padding: 0 5px;
+}
+.search-input::placeholder {
+  padding: 0 5px;
+}
+.search-btn {
+  position: relative;
+  right: 30px;
+  padding: 0;
+  border-radius: 40px;
+  height: 40px;
+  width: 40px;
+  border: none;
+}
+
+#pokemon-name {
+  font-weight: 700;
+  font-size: 28px;
+}
+
+p {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.list-group-custom {
+  border: none;
+  border-radius: 0;
+}
+.list-group-custom .list-group-item {
+  border: none;
+  border-bottom: 2px solid #eee;
+  width: 100%;
+  border-radius: 0;
+  color: black;
+}
+.list-group-custom .list-group-item:hover {
+  color: white;
+  background: #888;
+  border-bottom: 2px solid #eee;
+}
+.list-group-custom .list-group-item:focus {
+  color: white;
+  background: #888;
+}
+
+#pokemon-search {
+  border-radius: 50px;
+  border: none;
+  font-size: 14px;
+  padding: 5px 15px;
+}
+
+
+#pokemon-search::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+
+#pokemon-search::-moz-placeholder {
+  font-size: 14px;
+}
+
+
+#pokemon-search:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+
+#pokemon-search::-ms-input-placeholder {
+  font-size: 14px;
+}
+
+
+#pokemon-search::placeholder {
+  font-size: 14px;
+}
+
+@media all and (max-width: 767px) {
+  .pokemon-list {
+    margin-top: 120px;
+  }
+}
