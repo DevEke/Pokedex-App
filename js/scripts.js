@@ -7,7 +7,7 @@ let pokemonRepo = (function() {
 
 // Declares our list of pokemon
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=250';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=500';
 
 
 // Displays Status Messages
@@ -171,4 +171,24 @@ pokemonRepo.loadList().then(function() {
   pokemonRepo.getAll().forEach(function(pokemon) {
     pokemonRepo.addListItem(pokemon);
   });
+})
+
+function searchPokemon() {
+  let searchText = document.querySelector('#pokemon-search').value;
+  let x = searchText.toLowerCase();
+  let pokes = document.querySelectorAll('.list-group-item');
+  for (let i = 0; i < pokes.length; i++) {
+    let y = pokes[i].innerText;
+    if ( y.toLowerCase().indexOf(x) > -1 ) {
+      pokes[i].style.display = '';
+    } else {
+      pokes[i].style.display = 'none'
+    }
+  }
+}
+
+window.addEventListener('keydown', function(e) {
+  if (e.keyCode == '13') {
+    e.preventDefault();
+  }
 })

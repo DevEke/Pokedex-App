@@ -12,10 +12,13 @@
   <body>
 
     <!--Title for Pokemon list-->
-    <nav class="navbar navbar-expand-lg navbar-custom text-uppercase fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-custom text-uppercase fixed-top">
       <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1"><strong>Pokemon</strong></span>
-        <span class="status"></span>
+        <span class="navbar-brand mb-0 h1 col-2 text-left"><strong>Pokedex</strong></span>
+        <form class="col-8">
+          <input id="pokemon-search" oninput="searchPokemon()" class="form-control " type="search" placeholder="Search Pokedex" aria-label="Search"/>
+        </form>
+        <span class="status col-2 text-right"></span>
       </div>
     </nav>
 
@@ -23,7 +26,7 @@
     <div class="list-group list-group-custom pokemon-list"></div>
 
     <!--Modal Container-->
-    <div class="modal fade" tabindex="-1" id="pokemon-info">
+    <div class="modal fade" tabindex="-1" id="pokemon-info" aria-labelledby="pokemon-name" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content text-center">
           <div class="modal-header">
