@@ -53,9 +53,10 @@ let pokemonRepo = (function() {
     pokemonId.innerText = `ID: ${pokemon.id}`;
     let pokemonImage = document.createElement('img');
     pokemonImage.setAttribute('src', pokemon.imageUrl);
-    pokemonImage.classList.add('pokepic');
+    pokemonImage.classList.add('img-fluid');
+    pokemonImage.classList.add('mb-2');
     let pokemonHeight = document.createElement('p');
-    pokemonHeight.innerText = `Height: ${pokemon.height/.10000 } cm`
+    pokemonHeight.innerText = `Height: ${pokemon.height/.10000 } cm`;
     let pokemonWeight = document.createElement('p');
     pokemonWeight.innerText = `Weight: ${pokemon.weight/10} kg`;
 
