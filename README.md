@@ -1,8 +1,9 @@
-# Pokedex app
+# Pokedex App
 
 A simple application that allows the user to search for and retrieve information about various Pokemon. The app utilizes the PokeApi to retrieve a list of all Pokemon, and allows the user to click on a specific node to reveal more information about that Pokemon.
 
-##How to Install
+## How to Install
+
 Simply clone the repo and load the index.html file in the browser
 
 ## Main Features
