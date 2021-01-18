@@ -24,7 +24,7 @@ Simply clone the repo and load the index.html file in the browser
 You can change how many Pokemon are retrieved by changing the last value in the link to the number of Pokemon you want displayed. For instance, the below example will set the app to only show the first 500 Pokemon.
 
 ```
-"https://pokeapi.co/api/v2/pokemon/?limit=500";
+"https://pokeapi.co/api/v2/pokemon/?limit=493";
 ```
 
 ### Pokemon Guide
