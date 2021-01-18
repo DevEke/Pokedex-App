@@ -13,10 +13,14 @@ let pokemonRepo = (function() {
 // Displays Status Messages
   let status = document.querySelector('.status');
   function showLoadingMessage() {
+    status.classList.remove('ready');
+    status.classList.add('loading');
     status.innerHTML = "Loading..."
   }
 
   function showReadyMessage() {
+    status.classList.remove('loading');
+    status.classList.add('ready');
     status.innerHTML = "Ready";
   }
 
@@ -55,6 +59,7 @@ let pokemonRepo = (function() {
     pokemonImage.setAttribute('src', pokemon.imageUrl);
     pokemonImage.classList.add('img-fluid');
     pokemonImage.classList.add('mb-2');
+    pokemonImage.classList.add('pokepic');
     let pokemonHeight = document.createElement('p');
     pokemonHeight.innerText = `Height: ${pokemon.height/.10000 } cm`;
     let pokemonWeight = document.createElement('p');
