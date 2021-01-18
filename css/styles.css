@@ -17,15 +17,14 @@ button:focus {
   outline: none;
 }
 
-.pokemon-list {
-  margin-top: 80px;
-}
-
 .type {
   margin: 0 5px;
   height: 45px;
 }
 
+.pokemon-list {
+  margin-top: 60px;
+}
 .btn-close {
   background: none;
   border: none;
@@ -92,4 +91,17 @@ p {
 
 #pokemon-search::placeholder {
   font-size: 14px;
+}
+
+@media all and (max-width: 768px) {
+  .pokemon-list {
+    margin-top: 120px;
+  }
+  #pokemon-search {
+    text-align: center;
+  }
+}
+
+small {
+  font-size: 8px;
 }

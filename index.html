@@ -13,12 +13,12 @@
 
     <!--Title for Pokemon list-->
     <nav class="navbar navbar-expand-sm navbar-custom text-uppercase fixed-top">
-      <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1 col-2 text-left"><strong>Pokedex</strong></span>
+      <div class="container-fluid flex-column flex-md-row">
+        <span class="mb-1 mb-md-0 h5"><strong>Pokedex</strong><small> App</small></span>
         <form class="col-8">
-          <input id="pokemon-search" oninput="searchPokemon()" class="form-control " type="search" placeholder="Search Pokedex" aria-label="Search"/>
+          <input id="pokemon-search" oninput="searchPokemon()" class="form-control mb-2 mb-md-0" type="search" placeholder="Search Pokedex" aria-label="Search"/>
         </form>
-        <span class="status col-2 text-right"></span>
+        <span class="status"></span>
       </div>
     </nav>
 
