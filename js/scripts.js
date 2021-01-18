@@ -71,24 +71,24 @@ let pokemonRepo = (function() {
 
   // Switch case for Pokemon types, assigns class based on element of Pokemon
       switch(pokemon.type.name) {
-        case "normal": pokemonType.setAttribute('src', 'img/Normal.png'); break;
-        case "water": pokemonType.setAttribute('src', 'img/Water.png'); break;
-        case "electric": pokemonType.setAttribute('src', 'img/Electric.png'); break;
-        case "fighting": pokemonType.setAttribute('src', 'img/Fight.png'); break;
-        case "ground": pokemonType.setAttribute('src', 'img/Ground.png'); break;
-        case "psychic": pokemonType.setAttribute('src', 'img/Psychic.png'); break;
-        case "rock": pokemonType.setAttribute('src', 'img/Rock.png'); break;
-        case "dark": pokemonType.setAttribute('src', 'img/Dark.png'); break;
-        case "steel": pokemonType.setAttribute('src', 'img/Steel.png'); break;
-        case "fire": pokemonType.setAttribute('src', 'img/Fire.png'); break;
-        case "grass": pokemonType.setAttribute('src', 'img/Grass.png'); break;
-        case "ice": pokemonType.setAttribute('src', 'img/Ice.png'); break;
-        case "poison": pokemonType.setAttribute('src', 'img/Poison.png'); break;
-        case "flying": pokemonType.setAttribute('src', 'img/Flying.png'); break;
-        case "bug": pokemonType.setAttribute('src', 'img/Bug.png'); break;
-        case "ghost": pokemonType.setAttribute('src', 'img/Ghost.png'); break;
-        case "dragon": pokemonType.setAttribute('src', 'img/Dragon.png'); break;
-        case "fairy": pokemonType.setAttribute('src', 'img/Fairy.png'); break;
+        case "normal": pokemonType.setAttribute('src', './img/Normal.png'); break;
+        case "water": pokemonType.setAttribute('src', './img/Water.png'); break;
+        case "electric": pokemonType.setAttribute('src', './img/Electric.png'); break;
+        case "fighting": pokemonType.setAttribute('src', './img/Fight.png'); break;
+        case "ground": pokemonType.setAttribute('src', './img/Ground.png'); break;
+        case "psychic": pokemonType.setAttribute('src', './img/Psychic.png'); break;
+        case "rock": pokemonType.setAttribute('src', './img/Rock.png'); break;
+        case "dark": pokemonType.setAttribute('src', './img/Dark.png'); break;
+        case "steel": pokemonType.setAttribute('src', './img/Steel.png'); break;
+        case "fire": pokemonType.setAttribute('src', './img/Fire.png'); break;
+        case "grass": pokemonType.setAttribute('src', './img/Grass.png'); break;
+        case "ice": pokemonType.setAttribute('src', './img/Ice.png'); break;
+        case "poison": pokemonType.setAttribute('src', './img/Poison.png'); break;
+        case "flying": pokemonType.setAttribute('src', './img/Flying.png'); break;
+        case "bug": pokemonType.setAttribute('src', './img/Bug.png'); break;
+        case "ghost": pokemonType.setAttribute('src', './img/Ghost.png'); break;
+        case "dragon": pokemonType.setAttribute('src', './img/Dragon.png'); break;
+        case "fairy": pokemonType.setAttribute('src', './img/Fairy.png'); break;
       }
       modalBody.append(pokemonType);
     })
