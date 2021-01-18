@@ -21,15 +21,9 @@ button:focus {
   margin-top: 80px;
 }
 
-.pokepic {
-  height: 150px;
-  width: 150px;
-  margin: 0 auto 10px;
-}
-
 .type {
   margin: 0 5px;
-  height: 35px;
+  height: 45px;
 }
 
 .btn-close {
