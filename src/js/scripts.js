@@ -52,6 +52,7 @@ let pokemonRepo = (function() {
     pokemonId.innerText = "ID: " + pokemon.id;
     let pokemonImage = document.createElement("img");
     pokemonImage.setAttribute("src", pokemon.imageUrl);
+    pokemonImage.setAttribute("alt", `picture of ${pokemon.name}`);
     pokemonImage.classList.add("img-fluid");
     pokemonImage.classList.add("mb-2");
     pokemonImage.classList.add("pokepic");
